@@ -13,9 +13,10 @@ using namespace std;
 class Menu {
 private:
     string title;
-    ItemList items;
-public:
+    public:
     Menu(string _title);
+    public:
+    ItemList items;
     void add_item(Item item);
     void display_menu();
     void remove_item(string name);
