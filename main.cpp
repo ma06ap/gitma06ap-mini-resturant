@@ -2,10 +2,12 @@
 #include <string>
 
 
-#include "item.h"
 #include "item-list.h"
+#include "item.h"
 #include "main.h"
 #include "menu.h"
+#include "order-list.h"
+#include "order.h"
 #include "student.h"
 
 
@@ -13,53 +15,108 @@ using namespace std;
 
 
 int main() {
-    Item item1("Burger", 5.99, 0);
-    Item item2("Coke", 1.99, 1);
-    Item item3("Ice Cream", 2.99, 2);
-
-    // item1.set_next(&item2);
-    // item2.set_next(&item3);
-
-    // Item* current = &item1;
-    // while (current != nullptr) {
-    //     current->display();
-    //     current = current->get_next();
-    // }
-
-    // ItemList list;
-    // list.add_item("Burger", 5.99, 0);
-    // list.add_item("Coke", 1.99, 1);
-    // list.display_items();
-    // Item* found_item = list.find("Coke");
-    // if (found_item != nullptr) {
-    //     cout << "Found item: ";
-    //     found_item->display();
-    // } else {
-    //     cout << "Item not found." << endl;
-    // }
-    // list.remove("Burger");
-    // list.display_items();  
-    // list.add_item("Ice Cream", 2.99, 2);
-    // cout << list.get_size();
+    Item t0("Salad" ,7.50, 0);
+    Item t1("Burger" ,9.99 ,0);
+    Item t2("Coffee" ,3.25, 1);
+    Item t3("Soda" ,2.75, 1);
+    Item t4("Cake" ,5.50 ,2);
+    Item t5("Icecream" ,4.00 ,2);
+    Item t6("Pizza" ,11.99, 0);
+    Item t7("Juice" ,4.50, 1);
+    Item t8("Pie" ,4.75, 2);
+    Item t9("Steak" ,15.25, 0);
     
-    // Menu menu("Lunch Menu");
-    // menu.add_item(item1);
-    // menu.add_item(item2);
-    // menu.add_item(item3);
-    // menu.display_menu();
-    // menu.remove_item("Coke");
-    // menu.display_menu();
 
 
-    // Define some students (first name, last name, 8-digit id)
-    // Student s1("Alice", "Smith", "12345678");       // valid 8-digit numeric id
-    // Student s2("Bob", "Jones", "1234567");          // invalid: only 7 digits
-    // Student s3("Charlie", "Brown", "12A45B78");     // invalid: contains non-numeric chars
-    // s1.display();
-    // s2.display();
-    // s3.display();
+// Salad 7.50 0
+// Coffee 3.25 1
+// Soda 2.75 1
+// Cake 5.50 2
+// Icecream 4.00 2
+// Pizza 11.99 0
+// Juice 4.50 1
+// Pie 4.75 2
+// Steak 15.25 0
+
+    Menu menu("Teriakaj");
+    menu.add_item(t0);
+    menu.add_item(t1);
+    menu.add_item(t2);
+    menu.add_item(t3);
+    menu.add_item(t4);
+    menu.add_item(t5);
+    menu.add_item(t6);
+    menu.add_item(t7);
+    menu.add_item(t8);
+    menu.add_item(t9);
+    OrderList Orders;
+    int command;
+    cout << "Enter suitable number :" << endl << "1.Menu" << endl << "2.New order" << endl << "3.Order delivered" << endl << "4.Cancle order" << endl << "5.Change order" << endl << "6.Review" << endl <<  "0.Exit" << endl;
+    cin >> command;
+    while (command)
+    {
+        if (command == 1) {
+            menu.display_menu();
+        }
+        if (command == 2) {
+            string fn,ln,id;
+            cout << "Enter first name: " ;
+            cin >> fn;
+            cout << "Enter last name: " ;
+            cin >> ln;
+            cout << "Enter Id: " ;
+            cin >> id;
+            Student* st = new Student(fn,ln,id);
+            ItemList* ord = new ItemList();
+            string it;
+            cout << "Witch items do you want to add (Done = 0) : " ;
+            while (cin>>it)
+            {
+                if (it == "0") {
+                    break;
+                }
+                // cout << "*********************" << endl;
+                Item* temp = menu.items.find(it);
+                if (temp != nullptr) {
+                    // ord->add_item((*(menu.items.find(it))).get_name(),(*(menu.items.find(it))).get_price(),(*(menu.items.find(it))).get_type());
+                    ord->add_item(temp->get_name(),temp->get_price(),temp->get_type());
+                    // menu.items.find(it)->display();
+                    // cout << "founded" << endl;
+                    // cout << "loop" << endl;
+    
+                } else {
+                    cout << "not found" << endl;
+                }
+            }
+            // delete ord;
+            // delete st;
+            // cout << "outed" << endl;
+            Order* of = new Order(st,ord,nullptr);
+            Orders.add_order(of);
+            Orders.display();
+            cout << "Displayed." << endl;
+            // delete of;
+        }
+        if (command == 3) {
+
+        }
+        if (command == 4) {
+
+        }
+        if (command == 5) {
+
+        }
+        if (command == 6) {
+
+        }
+
+    
 
 
+
+        cin >> command;
+    }
+    
     
 
 
