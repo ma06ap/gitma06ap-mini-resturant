@@ -20,12 +20,17 @@ void ItemList::display_items() {
     }
 }
 Item* ItemList::find(string name) {
+    // cout << "Enter search" << endl;
     Item* current = head;
+    // if (head == nullptr) {
+
+    // }
     while (current != nullptr) {
         if (current->get_name() == name) {
             return current;
+            // cout << "found" << endl;
         }
-        cout << "Item not found: " << current->get_name() << endl;
+        // cout << "Item not found: " << current->get_name() << endl;
         current = current->get_next();
     }
     return nullptr;
