@@ -15,7 +15,7 @@ public:
 
     OrderList();
     void add_order(Order *inp);
-
+    void display();
     
 
 

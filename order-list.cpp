@@ -9,3 +9,11 @@ void OrderList::add_order(Order *inp) {
     head = n;
     size++;
 };
+void OrderList::display() {
+    Order *current = head;
+    while(current != nullptr) {
+        current->get_student()->display();
+        current->get_Itemes()->display_items();
+        current = current->get_next();
+    }
+};
