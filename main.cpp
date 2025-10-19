@@ -5,6 +5,7 @@
 #include "item.h"
 #include "item-list.h"
 #include "main.h"
+#include "menu.h"
 
 
 using namespace std;
@@ -40,7 +41,14 @@ int main() {
     // list.add_item("Ice Cream", 2.99, 2);
     // cout << list.get_size();
     
-    
+    // Menu menu("Lunch Menu");
+    // menu.add_item(item1);
+    // menu.add_item(item2);
+    // menu.add_item(item3);
+    // menu.display_menu();
+    // menu.remove_item("Coke");
+    // menu.display_menu();
+
 
 
 
