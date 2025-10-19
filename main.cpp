@@ -6,6 +6,7 @@
 #include "item-list.h"
 #include "main.h"
 #include "menu.h"
+#include "student.h"
 
 
 using namespace std;
@@ -49,6 +50,17 @@ int main() {
     // menu.remove_item("Coke");
     // menu.display_menu();
 
+
+    // Define some students (first name, last name, 8-digit id)
+    // Student s1("Alice", "Smith", "12345678");       // valid 8-digit numeric id
+    // Student s2("Bob", "Jones", "1234567");          // invalid: only 7 digits
+    // Student s3("Charlie", "Brown", "12A45B78");     // invalid: contains non-numeric chars
+    // s1.display();
+    // s2.display();
+    // s3.display();
+
+
+    
 
 
 
