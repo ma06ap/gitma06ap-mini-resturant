@@ -11,7 +11,7 @@ private:
 
 public:
     ItemList();
-
+    
     void add_item(string name, float price, int type);
     void display_items();
     Item* find(string name);
