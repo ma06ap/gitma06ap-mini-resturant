@@ -16,4 +16,8 @@ public:
     Student(string fname, string lname, string id);
     void display();
 
+    string get_fn ();
+    string get_ln ();
+    string get_id ();
+
 };

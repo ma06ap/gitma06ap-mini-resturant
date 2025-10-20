@@ -38,3 +38,13 @@ void Student::display () {
 
 
 }
+
+string Student::get_fn () {
+    return fname;
+};
+string Student::get_ln () { 
+    return lname;
+};
+string Student::get_id () {
+    return id;
+};
