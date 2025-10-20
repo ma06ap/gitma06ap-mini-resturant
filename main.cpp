@@ -133,8 +133,8 @@ int main() {
                 cout << "This order was delivered" << endl;
             }
             else {
-                cout << "1.Add " << endl << "2.Remove" << endl  << "0.Exit";
-                while (1) {
+                cout << "1.Add " << endl << "2.Remove" << endl  << "0.Exit" << endl;
+                
                 int change;
                 cin >> change;
                 cout << "Enter name: ";
@@ -151,7 +151,7 @@ int main() {
                     }
                 }
                 else if (change == 2) {
-                    Item* n = menu.items.find(item_name);
+                    Item* n = orders.search(i)->get_Itemes()->find(item_name);
                     if (n != nullptr) {
                         orders.search(i)->get_Itemes()->remove(item_name);
                     }
@@ -159,6 +159,7 @@ int main() {
                         cout << "Item not found." << endl;
                     }
                 }
+            
             }
         }
         if (command == 6) {
