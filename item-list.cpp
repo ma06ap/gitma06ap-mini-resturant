@@ -56,3 +56,7 @@ void ItemList::remove(string name) {
 int ItemList::get_size() {
     return size;
 }
+
+Item* ItemList::get_head () {
+    return head;
+};

@@ -18,6 +18,8 @@ private:
     void remove(string name);
     int get_size();
 
+    Item* get_head();
+
 
 
 
