@@ -19,14 +19,14 @@ void ItemList::display_items() {
         current = current->get_next();
     }
 }
-Item* ItemList::find(string name) {
+Item* ItemList::find(string _name) {
     // cout << "Enter search" << endl;
     Item* current = head;
     // if (head == nullptr) {
 
     // }
     while (current != nullptr) {
-        if (current->get_name() == name) {
+        if (current->get_name() == _name) {
             return current;
             // cout << "found" << endl;
         }
