@@ -66,3 +66,7 @@ void Order::display () {
     this->lorder->display_items();
     cout << id << endl;
 }
+
+OrderStatus Order::get_status() {
+    return status;
+};
