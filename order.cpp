@@ -41,18 +41,21 @@ void Order::change_status(int in) {
         status = static_cast<OrderStatus>(in);
         if (in == 1) {
             cout << "Order in process" << endl;
+            return;
         } else if (in == 2) {
             cout << "Order delivered" << endl;
+            return;
         }
         else if (in == 3) {
             cout << "Order canceled." << endl;
+            return;
         }
     }
 }
 
 void Order::set_id (int i) {
-    id = i;
-    cout << "id setted :" << id;
+    this->id = i;
+    // cout << "id setted :" << id;
 }
 
 int Order::get_id () {
