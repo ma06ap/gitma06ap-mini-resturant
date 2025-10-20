@@ -9,6 +9,7 @@
 #include "order-list.h"
 #include "order.h"
 #include "student.h"
+#include "file.h"
 
 
 using namespace std;
@@ -174,7 +175,7 @@ int main() {
     }
     
     
-
+    write(orders);
 
 
     return 0;
