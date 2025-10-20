@@ -49,8 +49,11 @@ int main() {
     menu.add_item(t7);
     menu.add_item(t8);
     menu.add_item(t9);
-    OrderList Orders;
+    OrderList orders;
     int command;
+    //
+    int nom = 200;
+    // after add files ...............................................................................
     cout << "Enter suitable number :" << endl << "1.Menu" << endl << "2.New order" << endl << "3.Order delivered" << endl << "4.Cancle order" << endl << "5.Change order" << endl << "6.Review" << endl <<  "0.Exit" << endl;
     cin >> command;
     while (command)
@@ -92,22 +95,41 @@ int main() {
             // delete st;
             // cout << "outed" << endl;
             Order* of = new Order(st,ord,nullptr);
-            Orders.add_order(of);
-            Orders.display();
-            cout << "Displayed." << endl;
-            // delete of;
+            // cout << nom << "   num" << endl;
+            // cout << "Set" << endl;
+            // of->display();
+            of->set_id(nom);
+            // cout << "Id setted" << endl;
+            // of->display();
+            nom++;
+            orders.add_order(of);
+            orders.display();
+            of->change_status(1);
+            delete of;
         }
         if (command == 3) {
-
+           int i;
+            cout << "Please enter order id :" << endl;
+            cin >> i; 
+            orders.search(i)->change_status(2);
+            // orders.search(i)->display();
+            // orders.search(i)->change_status(2);
         }
         if (command == 4) {
-
+            int i;
+            cout << "Please enter order id :" << endl;
+            cin >> i; 
+            orders.search(i)->change_status(3);
         }
         if (command == 5) {
+            int i;
+            cout << "Please enter order id :" << endl;
+            cin >> i; 
+            // orders.search(i)->change_status(2);
 
         }
         if (command == 6) {
-
+            orders.display();
         }
 
     
