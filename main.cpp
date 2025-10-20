@@ -125,8 +125,29 @@ int main() {
             int i;
             cout << "Please enter order id :" << endl;
             cin >> i; 
-            // orders.search(i)->change_status(2);
-
+            OrderStatus sts = orders.search(i)->get_status();
+            if (sts == cancled) {
+                cout << "This order was canceled" << endl;
+            }
+            else if (sts == delivered) {
+                cout << "This order was delivered" << endl;
+            }
+            else {
+                cout << "1.Add " << endl << "2.Remove" << endl  << "0.Exit";
+                int change;
+                cin >> change;
+                cout << "Enter name: ";
+                string item_name;
+                cin >> item_name;
+                if (change == 1) {
+                    Item* n = menu.items.find(item_name);
+                    orders.search(i)->get_Itemes()->add_item(n->get_name(),n->get_price(),n->get_type());
+                }
+                else if (change == 2) {
+                    // Item* n = menu.items.find(item_name);
+                    orders.search(i)->get_Itemes()->remove(item_name);
+                }
+            }
         }
         if (command == 6) {
             orders.display();
