@@ -17,7 +17,7 @@ public:
     void add_order(Order *inp);
     void display();
     Order* search (int _id);
-    
+    Order* get_head();
 
 
 

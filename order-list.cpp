@@ -34,3 +34,7 @@ Order* OrderList::search (int _id) {
     }
     return nullptr;
 };
+
+Order* OrderList::get_head() {
+    return head;
+}
