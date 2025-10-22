@@ -108,7 +108,7 @@ int main() {
             // of->display();
             nom++;
             orders.add_order(of);
-            orders.display();
+            // orders.display();
             of->change_status(1);
             delete of;
         }

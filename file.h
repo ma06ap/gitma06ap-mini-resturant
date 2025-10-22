@@ -37,55 +37,60 @@ void write (OrderList& list) {
 }
 int read (OrderList* orders) {
     ifstream file(ls);
-    if(file.peek() == ifstream::traits_type::eof()) {
-        return 1;
-    }
-    bool flag = 0;
-    string line;
     int max = 0;
-    while (getline(file, line)) {
-        int ord_id;
-        string fn , ln , stid;
-        int ord_status;
-        stringstream ss(line);
-        string cell;
-        vector<string> row;
-        while (getline(ss, cell, ',')) {
-            row.push_back(cell);
-        }
-        {
-            ord_id = stoi(row.at(0));
-            if (!max) {
-                max = ord_id;
-            }
-            if (max < ord_id) {
-                max = ord_id;
-            }
-            fn = row.at(1);
-            ln = row.at(2);
-            stid = row.at(3);
-            Student* student = new Student(fn,ln,stid);
-            ItemList* itls = new ItemList();
-            ord_status = stoi(row.at(4));
-            cout << "I am here";
-            for (size_t i = 5; i < row.size(); i++)
-            {
-                string it_name = row.at(i++);
-                int price = stoi(row.at(i++));
-                int type = stoi(row.at(i));
-                
-                itls->add_item(it_name,price,type);
-                // read item list
-            }
-            // just use new
-            Order* ordd = new Order(student,itls,nullptr);
-            ordd->set_id(ord_id);
-            ordd->change_status(ord_status);
-            orders->add_order(ordd);
+    if(file.peek() == ifstream::traits_type::eof()) {
+        return 0;
+    } else {
 
+        bool flag = 0;
+        string line;
+        while (getline(file, line)) {
+            int ord_id;
+            string fn , ln , stid;
+            int ord_status;
+            stringstream ss(line);
+            string cell;
+            vector<string> row;
+            while (getline(ss, cell, ',')) {
+                row.push_back(cell);
+            }
+            {
+                if (row.empty()) {
+                    return 0;
+                }
+                ord_id = stoi(row.at(0));
+                if (!max) {
+                    max = ord_id;
+                }
+                if (max < ord_id) {
+                    max = ord_id;
+                }
+                fn = row.at(1);
+                ln = row.at(2);
+                stid = row.at(3);
+                Student* student = new Student(fn,ln,stid);
+                ItemList* itls = new ItemList();
+                ord_status = stoi(row.at(4));
+                cout << "I am here";
+                for (size_t i = 5; i < row.size(); i++)
+                {
+                    string it_name = row.at(i++);
+                    int price = stoi(row.at(i++));
+                    int type = stoi(row.at(i));
+                    
+                    itls->add_item(it_name,price,type);
+                    // read item list
+                }
+                // just use new
+                Order* ordd = new Order(student,itls,nullptr);
+                ordd->set_id(ord_id);
+                ordd->change_status(ord_status);
+                orders->add_order(ordd);
+                
+            }
+            row.clear();
         }
-        row.clear();
     }
     return max;
-
+    
 } ;
