@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <cstdlib>
 
 
 #include "item-list.h"
@@ -53,7 +54,10 @@ int main() {
     OrderList orders;
     int command;
     //
-    int nom = 200;
+    int nom = read(&orders);
+    nom ++;
+    // int nom = 1;
+    system("cls");
     // after add files ...............................................................................
     cout << "Enter suitable number :" << endl << "1.Menu" << endl << "2.New order" << endl << "3.Order delivered" << endl << "4.Cancle order" << endl << "5.Change order" << endl << "6.Review" << endl <<  "0.Exit" << endl;
     cin >> command;
