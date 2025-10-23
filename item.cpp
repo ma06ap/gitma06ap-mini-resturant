@@ -42,6 +42,8 @@ void Item::display() {
         case dessert:
             cout << "Dessert";
             break;
+        default :
+            break;
     }
     cout << endl;
 }

@@ -12,28 +12,12 @@
 #include "student.h"
 #include "file.h"
 
-// enum ff{
-//     Pendin,
-//     Inproces,
-//     delivere,
-//     cancle,
-// };
 
 
 using namespace std;
 
 
 int main() {
-
-
-    // ff dff  = Pendin;
-    // cout << static_cast<int>(dff) ;
-    // dff  = Inproces;
-    // cout << static_cast<int>(dff) ;
-    // dff  = delivere;
-    // cout << static_cast<int>(dff) ;
-    // dff  = cancle;
-    // cout << static_cast<int>(dff) ;
 
     Item t0("Salad" ,7.50, 0);
     Item t1("Burger" ,9.99 ,0);
@@ -46,18 +30,6 @@ int main() {
     Item t8("Pie" ,4.75, 2);
     Item t9("Steak" ,15.25, 0);
     
-
-
-// Salad 7.50 0
-// Coffee 3.25 1
-// Soda 2.75 1
-// Cake 5.50 2
-// Icecream 4.00 2
-// Pizza 11.99 0
-// Juice 4.50 1
-// Pie 4.75 2
-// Steak 15.25 0
-
     Menu menu("Teriakaj");
     menu.add_item(t0);
     menu.add_item(t1);
@@ -100,33 +72,19 @@ int main() {
                 if (it == "0") {
                     break;
                 }
-                // cout << "*********************" << endl;
                 Item* temp = menu.items.find(it);
                 if (temp != nullptr) {
-                    // ord->add_item((*(menu.items.find(it))).get_name(),(*(menu.items.find(it))).get_price(),(*(menu.items.find(it))).get_type());
+
                     ord->add_item(temp->get_name(),temp->get_price(),temp->get_type());
-                    // menu.items.find(it)->display();
-                    // cout << "founded" << endl;
-                    // cout << "loop" << endl;
-    
                 } else {
                     cout << "not found" << endl;
                 }
             }
-            // delete ord;
-            // delete st;
-            // cout << "outed" << endl;
             Order* of = new Order(st,ord,nullptr);
-            // cout << nom << "   num" << endl;
-            // cout << "Set" << endl;
-            // of->display();
             of->set_id(nom);
-            // cout << "Id setted" << endl;
-            // of->display();
             nom++;
             of->change_status(1);
             orders.add_order(of);
-            // orders.display();
             delete of;
         }
         if (command == 3) {
@@ -134,8 +92,6 @@ int main() {
             cout << "Please enter order id :" << endl;
             cin >> i; 
             orders.search(i)->change_status(2);
-            // orders.search(i)->display();
-            // orders.search(i)->change_status(2);
         }
         if (command == 4) {
             int i;
@@ -188,16 +144,9 @@ int main() {
             orders.display();
         }
 
-    
-
-
 
         cin >> command;
     }
-    
-    
     write(orders);
-
-
     return 0;
 }
