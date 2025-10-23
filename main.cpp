@@ -12,11 +12,29 @@
 #include "student.h"
 #include "file.h"
 
+// enum ff{
+//     Pendin,
+//     Inproces,
+//     delivere,
+//     cancle,
+// };
+
 
 using namespace std;
 
 
 int main() {
+
+
+    // ff dff  = Pendin;
+    // cout << static_cast<int>(dff) ;
+    // dff  = Inproces;
+    // cout << static_cast<int>(dff) ;
+    // dff  = delivere;
+    // cout << static_cast<int>(dff) ;
+    // dff  = cancle;
+    // cout << static_cast<int>(dff) ;
+
     Item t0("Salad" ,7.50, 0);
     Item t1("Burger" ,9.99 ,0);
     Item t2("Coffee" ,3.25, 1);
@@ -56,9 +74,8 @@ int main() {
     //
     int nom = read(&orders);
     nom ++;
-    // int nom = 1;
-    system("cls");
-    // after add files ...............................................................................
+    system("cls"); 
+    
     cout << "Enter suitable number :" << endl << "1.Menu" << endl << "2.New order" << endl << "3.Order delivered" << endl << "4.Cancle order" << endl << "5.Change order" << endl << "6.Review" << endl <<  "0.Exit" << endl;
     cin >> command;
     while (command)
@@ -107,9 +124,9 @@ int main() {
             // cout << "Id setted" << endl;
             // of->display();
             nom++;
+            of->change_status(1);
             orders.add_order(of);
             // orders.display();
-            of->change_status(1);
             delete of;
         }
         if (command == 3) {

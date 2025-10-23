@@ -1,6 +1,5 @@
 #pragma once
 
-
 #include <fstream>
 #include <iostream>
 #include <sstream>
@@ -23,7 +22,7 @@ void write (OrderList& list) {
     while (f != nullptr)
     {
         file << f->get_id() << "," << f->get_student()->get_fn() << "," << f->get_student()->get_ln() << "," << f->get_student()->get_id() << ",";
-        file << f->get_status() << ",";
+        file << (f->get_status()) << ",";
         Item* curr = f->get_Itemes()->get_head();
         while (curr != nullptr) {
         file << curr->get_name() << "," << curr->get_price() << "," << curr->get_type() << ",";
@@ -47,7 +46,7 @@ int read (OrderList* orders) {
         while (getline(file, line)) {
             int ord_id;
             string fn , ln , stid;
-            int ord_status;
+            int ordtus;
             stringstream ss(line);
             string cell;
             vector<string> row;
@@ -70,7 +69,7 @@ int read (OrderList* orders) {
                 stid = row.at(3);
                 Student* student = new Student(fn,ln,stid);
                 ItemList* itls = new ItemList();
-                ord_status = stoi(row.at(4));
+                ordtus = stoi(row.at(4));
                 cout << "I am here";
                 for (size_t i = 5; i < row.size(); i++)
                 {
@@ -79,12 +78,12 @@ int read (OrderList* orders) {
                     int type = stoi(row.at(i));
                     
                     itls->add_item(it_name,price,type);
-                    // read item list
                 }
-                // just use new
                 Order* ordd = new Order(student,itls,nullptr);
                 ordd->set_id(ord_id);
-                ordd->change_status(ord_status);
+                ordd->display();
+                ordd->Setst(ordtus);
+                ordd->display();
                 orders->add_order(ordd);
                 
             }

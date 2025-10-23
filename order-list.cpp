@@ -7,6 +7,7 @@ OrderList::OrderList() {
 void OrderList::add_order(Order *inp) {
     Order* n = new Order(inp->get_student(),inp->get_Itemes(),head);
     n->set_id (inp->get_id());
+    n->Setst(inp->get_status());
     head = n;
     size++;
 };

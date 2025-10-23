@@ -32,5 +32,6 @@ public:
     int get_id ();
     void display ();
     OrderStatus get_status();
+    void Setst(int n) ;
 };
 

@@ -28,25 +28,30 @@ Order* Order::get_next () {
 
 void Order::change_status(int in) {
     //
-    cout << "enter change menu" << endl;
-    if (status == cancled) {
+    int n = static_cast<int>(this->status);
+    // cout << "This is n " << n << endl;
+    // cout << "enter change menu" << endl;
+    if (n == 3) {
         cout << "Order was canceled" << endl;
         return;
     }
-    else if (status == delivered) {
+    else if (n == 2) {
         cout << "Order was delivered" << endl;
         return;
     }
     else {
-        status = static_cast<OrderStatus>(in);
+        // in = static_cast<OrderStatus>(in);
         if (in == 1) {
+            this->status = Inprocess;
             cout << "Order in process" << endl;
             return;
         } else if (in == 2) {
+            this->status = delivered;
             cout << "Order delivered" << endl;
             return;
         }
         else if (in == 3) {
+            this->status = cancled;
             cout << "Order canceled." << endl;
             return;
         }
@@ -64,8 +69,31 @@ int Order::get_id () {
 void Order::display () {
     this->customer->display();
     this->lorder->display_items();
-    cout << id << endl;
+    cout << status;
+    cout << "  " << id << endl;
+    // display status;
     cout << "----------------------------------" << endl;
+}
+void Order::Setst(int n) {
+    if (n==0) {
+        // cout << "inam 0 " << endl;
+        status = Pending;
+        // cout << " " << status << endl;
+        // status = Pending;
+        // status = Pending;
+    } else if (n==1) {
+        status = Inprocess;
+        // cout << " " << status << endl;
+        
+    } else if (n==2) {
+        status = delivered;
+        // cout << " " << status << endl;
+        
+    } else if (n==3) {
+        status = cancled;
+        // cout << " " << status << endl;
+
+    }
 }
 
 OrderStatus Order::get_status() {
