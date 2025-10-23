@@ -48,7 +48,7 @@ int main() {
     nom ++;
     system("cls"); 
     
-    cout << "Enter suitable number :" << endl << "1.Menu" << endl << "2.New order" << endl << "3.Order delivered" << endl << "4.Cancle order" << endl << "5.Change order" << endl << "6.Review" << endl <<  "0.Exit" << endl;
+    cout  << "1.Menu" << endl << "2.New order" << endl << "3.Order delivered" << endl << "4.Cancle order" << endl << "5.Change order" << endl << "6.Review" << endl <<  "0.Exit" << endl;
     cin >> command;
     while (command)
     {
@@ -115,6 +115,8 @@ int main() {
                 
                 int change;
                 cin >> change;
+                if (change && (orders.search(i)->get_s()>1)) {
+                
                 cout << "Enter name: ";
                 string item_name;
                 cin >> item_name;
@@ -137,7 +139,7 @@ int main() {
                         cout << "Item not found." << endl;
                     }
                 }
-            
+            }
             }
         }
         if (command == 6) {

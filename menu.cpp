@@ -11,7 +11,7 @@ void Menu::add_item(Item item) {
     items.add_item(item.get_name(), item.get_price(), static_cast<int>(item.get_type()));
 }
 void Menu::display_menu() {
-    cout << "Menu: " << title << endl;
+    cout << title << endl;
     items.display_items();
 }
 void Menu::remove_item(string name) {

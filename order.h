@@ -33,5 +33,8 @@ public:
     void display ();
     OrderStatus get_status();
     void Setst(int n) ;
+    int get_s() {
+        return lorder->get_size();
+    };
 };
 

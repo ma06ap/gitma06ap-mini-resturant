@@ -31,7 +31,7 @@ Item* Item::get_next () {
     return next;
 }
 void Item::display() {
-    cout << "Item Name: " << name << ", Price: " << price << ", Type: ";
+    cout << name << " , " << price << " , ";
     switch (type) {
         case food:
             cout << "Food";
@@ -42,7 +42,7 @@ void Item::display() {
         case dessert:
             cout << "Dessert";
             break;
-        default :
+        default : 
             break;
     }
     cout << endl;
